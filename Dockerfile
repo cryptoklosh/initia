@@ -41,14 +41,14 @@ RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS="-linkmode=external -extldflag
 
 FROM alpine:3.19
 
-RUN addgroup initia \
-    && adduser -G initia -D -h /initia initia
+# RUN addgroup initia \
+#     && adduser -G initia -D -h /initia initia
 
-WORKDIR /initia
+WORKDIR /root
 
 COPY --from=go-builder /code/build/initiad /usr/local/bin/initiad
 
-USER initia
+# USER initia
 
 # rest server
 EXPOSE 1317
